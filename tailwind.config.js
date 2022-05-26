@@ -3,12 +3,12 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        heading: "FEF6E4",
+        'heading': "#FEF6E4",
       },
-      backgroundImage:{
-        
-      }
     },
+    backgroundImage:{
+      'hero-image': "url('./src/pics/flightclub.png')",
+    }
   },
   plugins: [],
 };
