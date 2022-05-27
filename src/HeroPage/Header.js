@@ -4,7 +4,7 @@ import { faShoePrints } from "@fortawesome/free-solid-svg-icons";
 
 const Header = () => {
   return (
-    <header className="flex absolute left-xl top-xl">
+    <header className="flex absolute left-8 top-8">
       <FontAwesomeIcon
         icon={faShoePrints}
         className="transition -rotate-90 text-heading text-5xl"
