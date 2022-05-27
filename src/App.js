@@ -9,7 +9,6 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        {/* <h1>Hello React Router v6</h1> */}
         <Routes>
           <Route path="/home" element={<Home />} />
           <Route path="/" element={<HeroPage />} />
