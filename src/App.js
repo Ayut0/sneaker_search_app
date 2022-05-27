@@ -11,10 +11,10 @@ function App() {
       <header className="App-header">
         {/* <h1>Hello React Router v6</h1> */}
         <Routes>
-          <Route path='/hero' element={<HeroPage />}/>
-          <Route path='/' element={<Home />}/>
-          <Route path='/detail' element={<Detail />}/>
-          <Route path='*' element={<NotFound />} />
+          <Route path="/home" element={<Home />} />
+          <Route path="/" element={<HeroPage />} />
+          <Route path="/detail" element={<Detail />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </header>
     </div>
