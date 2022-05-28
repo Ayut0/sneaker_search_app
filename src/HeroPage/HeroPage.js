@@ -1,5 +1,6 @@
 import Header from "./Header";
 import flightClub from "../pics/flightclub.png";
+import { Link } from "react-router-dom";
 
 const HeroPage = () =>{
     return (
@@ -9,9 +10,12 @@ const HeroPage = () =>{
           className="h-screen w-screen xl:bg-cover bg-center"
           style={{ backgroundImage: `url(${flightClub})` }}
         ></div>
-        <button className="absolute xl:left-40 bottom-60 xl:px-16 xl:py-12 xl:text-5xl px-12 py-8 left-32 font-bold transition-colors duration-300 rounded rounded-full shadow-xl bg-slate-500 hover:bg-slate-600 text-slate-100 shadow-slate-400/30">
+        <Link
+          to="/home"
+          className="absolute text-xl xl:left-40 xl:bottom-60 xl:px-16 xl:py-12 xl:text-5xl px-8 py-8 left-20 top-96 font-black transition-colors duration-300 rounded rounded-full shadow-xl bg-slate-500 hover:bg-slate-600 text-slate-100 shadow-slate-400/30 opacity-90"
+        >
           Browse your kicks
-        </button>
+        </Link>
       </div>
     );
 }
