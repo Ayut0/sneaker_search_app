@@ -3,15 +3,18 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        'heading': "#FEF6E4",
+        heading: "#FEF6E4",
       },
       backgroundColor: {
-        'header': "#414244",
+        header: "#414244",
+      },
+      margin: {
+        centered : "0 auto",
       },
     },
-    backgroundImage:{
-      'hero-image': "url('./src/pics/flightclub.png')",
-    }
+    backgroundImage: {
+      "hero-image": "url('./src/pics/flightclub.png')",
+    },
   },
   plugins: [],
 };

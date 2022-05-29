@@ -4,7 +4,7 @@ import axios from "axios";
 const options = {
   method: "GET",
   url: "https://the-sneaker-database.p.rapidapi.com/search",
-  params: { limit: "10", query: "airjordan" },
+  params: { limit: "100", query: "airjordan" },
   headers: {
     "X-RapidAPI-Host": "the-sneaker-database.p.rapidapi.com",
     "X-RapidAPI-Key": `${process.env.REACT_APP_RAPID_API_KEY}`,
