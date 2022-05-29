@@ -8,14 +8,12 @@ import NotFound from './NotFoundPage/NotFoundPage';
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
         <Routes>
           <Route path="/home" element={<Home />} />
           <Route path="/" element={<HeroPage />} />
           <Route path="/detail" element={<Detail />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
-      </header>
     </div>
   );
 }

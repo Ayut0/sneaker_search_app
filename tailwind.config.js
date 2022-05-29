@@ -5,6 +5,9 @@ module.exports = {
       colors: {
         'heading': "#FEF6E4",
       },
+      backgroundColor: {
+        'header': "#414244",
+      },
     },
     backgroundImage:{
       'hero-image': "url('./src/pics/flightclub.png')",
