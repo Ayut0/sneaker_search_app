@@ -1,4 +1,4 @@
-import './App.css';
+// import './App.css';
 import { Routes, Route } from 'react-router-dom';
 import HeroPage from './HeroPage/HeroPage';
 import Home from './Home/Home';
