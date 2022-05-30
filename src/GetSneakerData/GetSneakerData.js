@@ -1,35 +1,42 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
+import { keyboard } from "@testing-library/user-event/dist/keyboard";
 
-const options = {
-  method: "GET",
-  url: "https://the-sneaker-database.p.rapidapi.com/search",
-  params: { limit: "100", query: "airjordan" },
-  headers: {
-    "X-RapidAPI-Host": "the-sneaker-database.p.rapidapi.com",
-    "X-RapidAPI-Key": `${process.env.REACT_APP_RAPID_API_KEY}`,
-  },
-};
 
-const GetSneakerData = () => {
+const Sneaker = () => {
   const [sneakerData, setSneakerData] = useState(null);
   const [sneakerName, setSneakerName] = useState('');
-
-  useEffect(() => {
-    axios
-      .request(options)
-      .then(function (response) {
-        console.log(response.data);
-        setSneakerData(response.data);
-        console.log(sneakerData);
-      })
-      .catch(function (error) {
-        console.error(error);
-      });
-  }, []);
+  const GetSneakerData = (e) => {
+    e.preventDefault();
+    
+    const options = {
+      method: "GET",
+      url: "https://the-sneaker-database.p.rapidapi.com/search",
+      params: { limit: "100", query: `${sneakerName}` },
+      headers: {
+        "X-RapidAPI-Host": "the-sneaker-database.p.rapidapi.com",
+        "X-RapidAPI-Key": `${process.env.REACT_APP_RAPID_API_KEY}`,
+      },
+    };
+  
+    useEffect(() => {
+      axios
+        .request(options)
+        .then( (response) =>{
+          console.log(response.data);
+          setSneakerData(response.data);
+          console.log(sneakerData);
+        })
+        .catch( (error) =>{
+          console.error(error);
+          alert(error.message);
+        });
+    }, []);
+  
+  };
 
   return (
-    <form className="w-9/12 m-centered pt-32">
+    <form className="w-9/12 m-centered pt-32" onSubmit={GetSneakerData}>
       <label
         for="default-search"
         className="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-gray-300"
@@ -59,6 +66,8 @@ const GetSneakerData = () => {
           className="block p-6 pl-10 w-full text-sm text-gray-900 bg-gray-50 rounded-3xl border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
           placeholder="enter kick's name..."
           maxLength="25"
+          value={sneakerName}
+          onChange={(e) => setSneakerName(e.target.value)}
           required
         />
         <button
@@ -70,6 +79,9 @@ const GetSneakerData = () => {
       </div>
     </form>
   );
-};
+}
 
-export default GetSneakerData;
+
+
+
+export default Sneaker;
