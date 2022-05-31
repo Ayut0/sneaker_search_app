@@ -1,14 +1,15 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-import { keyboard } from "@testing-library/user-event/dist/keyboard";
+
 
 
 const Sneaker = () => {
   const [sneakerData, setSneakerData] = useState(null);
   const [sneakerName, setSneakerName] = useState('');
+
   const GetSneakerData = (e) => {
     e.preventDefault();
-    
+
     const options = {
       method: "GET",
       url: "https://the-sneaker-database.p.rapidapi.com/search",
@@ -18,24 +19,24 @@ const Sneaker = () => {
         "X-RapidAPI-Key": `${process.env.REACT_APP_RAPID_API_KEY}`,
       },
     };
-  
-    useEffect(() => {
-      axios
-        .request(options)
-        .then( (response) =>{
-          console.log(response.data);
-          setSneakerData(response.data);
-          console.log(sneakerData);
-        })
-        .catch( (error) =>{
-          console.error(error);
-          alert(error.message);
-        });
-    }, []);
-  
+
+    axios
+      .request(options)
+      .then( (response) =>{
+        console.log(response.data);
+        setSneakerData(response.data);
+        console.log(sneakerData);
+      })
+      .catch( (error) =>{
+        console.error(error);
+        alert(error.message);
+      });
+    // useEffect(() => {
+    // }, []);
   };
 
   return (
+    <div>
     <form className="w-9/12 m-centered pt-32" onSubmit={GetSneakerData}>
       <label
         for="default-search"
@@ -78,10 +79,13 @@ const Sneaker = () => {
         </button>
       </div>
     </form>
+    {/* Show up test */}
+    {/* <div>
+      {JSON.stringify(sneakerData)}
+    </div> */}
+    </div>
   );
 }
-
-
 
 
 export default Sneaker;
