@@ -4,17 +4,25 @@ module.exports = {
     extend: {
       colors: {
         heading: "#FEF6E4",
+        card: "#CCCCCC",
+        detailBtn: "#FFB906",
       },
       backgroundColor: {
         header: "#414244",
       },
       margin: {
-        centered : "0 auto",
+        centered: "0 auto",
       },
+      width: {
+        "30": "30%",
+      }
     },
     backgroundImage: {
       "hero-image": "url('./src/pics/flightclub.png')",
     },
+    opacity: {
+      "95": ".95"
+    }
   },
   plugins: [],
 };
