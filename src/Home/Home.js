@@ -13,9 +13,9 @@ const Home = () => {
       >
         <GetSneakerData />
         <section className="flex flex-wrap w-11/12 m-centered mt-12">
+          {/* <Card />
           <Card />
-          <Card />
-          <Card />
+          <Card /> */}
         </section>
       </main>
     </div>
