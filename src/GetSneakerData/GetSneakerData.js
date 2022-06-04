@@ -3,7 +3,7 @@ import axios from "axios";
 import Card from "../Card/Card";
 
 const Sneaker = () => {
-  const [sneakerData, setSneakerData] = useState(null);
+  const [sneakerData, setSneakerData] = useState([]);
   const [sneakerName, setSneakerName] = useState('');
 
   const options = {
@@ -16,7 +16,7 @@ const Sneaker = () => {
     },
   };
 
-  // let sneakerCard = '';
+
   const GetSneakerData = (e) => {
     e.preventDefault();
 
@@ -27,31 +27,8 @@ const Sneaker = () => {
         setSneakerData(response.data);
         console.log(Object.keys(response.data))
         console.log(response.data.results);
-        response.data.results.forEach(item => {
-            <div className="bg-card opacity-95 m-centered w-full lg:w-30">
-              <div>
-                <img src="item.small" alt=""></img>
-              </div>
-              <div>
-                <h3 className="font-bold">{item.name}</h3>
-              </div>
-              <div>
-                <ul>
-                  <li className="font-bold">
-                    Release Date: {item.releaseDate}
-                  </li>
-                  <li className="font-bold">Brand: {item.brand}</li>
-                  <li className="font-bold">
-                    Estimated Market Value: {item.estimatedMarketValue}
-                  </li>
-                </ul>
-              </div>
-              <button className="bg-detailBtn hover:bg-detailBtn text-white font-bold hover:text-white py-2 px-4 border border-detailBtn hover:border-transparent rounded">
-                <a href="item.links.flightclub">See detail</a>
-              </button>
-            </div>
-          ;
-          
+        const sneakerCard = sneakerData.results.map((element, id) => {
+          return <Card key={element.id}/>
         });
       })
       .catch( (error) =>{
@@ -108,10 +85,6 @@ const Sneaker = () => {
           </button>
         </div>
       </form>
-      {/* Show up test */}
-      {/* {Object.keys(response.data).length === 3 ? (
-        <Card response.data={response.data} />
-      ): null} */}
     </div>
   );
 }
