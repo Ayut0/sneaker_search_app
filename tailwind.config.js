@@ -15,6 +15,9 @@ module.exports = {
       },
       width: {
         "30": "30%",
+      },
+      height: {
+        "60": "60%",
       }
     },
     backgroundImage: {
