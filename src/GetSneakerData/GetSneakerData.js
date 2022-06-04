@@ -16,7 +16,6 @@ const Sneaker = () => {
     },
   };
 
-
   const GetSneakerData = (e) => {
     e.preventDefault();
 
@@ -25,11 +24,7 @@ const Sneaker = () => {
       .then( (response) =>{
         console.log(response.data);
         setSneakerData(response.data.results);
-        // console.log(Object.keys(response.data))
         console.log(response.data.results);
-        const sneakerCard = sneakerData.results.map((element, id) => {
-          return <Card key={element.id}/>
-        });
       })
       .catch( (error) =>{
         console.error(error);
@@ -39,13 +34,13 @@ const Sneaker = () => {
     // }, []);
   };
 
-  console.log(sneakerData);
+  // console.log(sneakerData);
 
   return (
     <div>
       <form className="w-9/12 m-centered pt-32" onSubmit={GetSneakerData}>
         <label
-          for="default-search"
+          htmlFor="default-search"
           className="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-gray-300"
         >
           Search
@@ -60,9 +55,9 @@ const Sneaker = () => {
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
                 d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
               ></path>
             </svg>
@@ -85,6 +80,23 @@ const Sneaker = () => {
           </button>
         </div>
       </form>
+      <section className="flex flex-wrap w-11/12 m-centered mt-12 gap-y-12">
+        {sneakerData &&
+          sneakerData.map((data) => (
+            <Card
+              key={data.id}
+              id={data.id}
+              name={data.name}
+              image={data.image.small}
+              brand={data.brand}
+              estimatedValue={data.estimatedMarketValue}
+              retailPrice={data.retailPrice}
+              releaseDate={data.releaseDate || `Unknown`}
+              links={data.links}
+              story={data.story || `No story given`}
+            />
+          ))}
+      </section>
     </div>
   );
 }

@@ -1,23 +1,19 @@
 const Card = (props) =>{
     return (
       <div className="bg-card opacity-95 m-centered w-full lg:w-30">
-        <div>
-          <img src="" alt=""></img>
+        <div className="w-11/12 h-60 m-centered">
+          <img src={props.image} alt={props.name}></img>
         </div>
         <div>
-          <h3 className="font-bold">{props.responseObj.results[0].name}</h3>
+          <h3 className="font-bold text-center text-2xl">{props.name}</h3>
         </div>
         <div>
           <ul>
+            <li className="font-bold">Release Date: {props.releaseDate}</li>
+            <li className="font-bold">Brand: {props.brand}</li>
             <li className="font-bold">
-              Release Date: {props.responseObj.results[0].releaseDate}
-            </li>
-            <li className="font-bold">
-              Brand: {props.responseObj.results[0].brand}
-            </li>
-            <li className="font-bold">
-              Estimated Market Value:{" "}
-              {props.responseObj.results[0].estimatedMarketValue}
+              Estimated Market Value: $
+              {props.estimatedValue.toLocaleString("en-US")}
             </li>
           </ul>
         </div>

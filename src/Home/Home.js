@@ -1,4 +1,3 @@
-import Card from "../Card/Card";
 import Header from "../HeroPage/Header";
 import offWhite from "../pics/offwhite_theten.jpg";
 import Sneaker from "../GetSneakerData/GetSneakerData";
@@ -13,11 +12,6 @@ const Home = () => {
         style={{ backgroundImage: `url(${offWhite})` }}
       >
         <Sneaker />
-        <section className="flex flex-wrap w-11/12 m-centered mt-12">
-          {/* <Card />
-          <Card />
-          <Card /> */}
-        </section>
       </main>
       <Footer />
     </div>
