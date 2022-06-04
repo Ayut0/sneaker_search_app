@@ -1,7 +1,8 @@
-import GetSneakerData from "../GetSneakerData/GetSneakerData";
 import Card from "../Card/Card";
 import Header from "../HeroPage/Header";
 import offWhite from "../pics/offwhite_theten.jpg";
+import Sneaker from "../GetSneakerData/GetSneakerData";
+import Footer from "../HeroPage/Footer";
 
 const Home = () => {
   return (
@@ -11,13 +12,14 @@ const Home = () => {
         className="h-screen w-screen xl:bg-cover bg-center"
         style={{ backgroundImage: `url(${offWhite})` }}
       >
-        <GetSneakerData />
+        <Sneaker />
         <section className="flex flex-wrap w-11/12 m-centered mt-12">
           {/* <Card />
           <Card />
           <Card /> */}
         </section>
       </main>
+      <Footer />
     </div>
   );
 };

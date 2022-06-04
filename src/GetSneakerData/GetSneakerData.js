@@ -24,8 +24,8 @@ const Sneaker = () => {
       .request(options)
       .then( (response) =>{
         console.log(response.data);
-        setSneakerData(response.data);
-        console.log(Object.keys(response.data))
+        setSneakerData(response.data.results);
+        // console.log(Object.keys(response.data))
         console.log(response.data.results);
         const sneakerCard = sneakerData.results.map((element, id) => {
           return <Card key={element.id}/>
@@ -88,6 +88,5 @@ const Sneaker = () => {
     </div>
   );
 }
-
 
 export default Sneaker;
