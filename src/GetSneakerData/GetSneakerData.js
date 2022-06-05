@@ -87,7 +87,7 @@ const Sneaker = () => {
               key={data.id}
               id={data.id}
               name={data.name}
-              image={data.image.small}
+              image={data.image.thumbnail}
               brand={data.brand}
               estimatedValue={data.estimatedMarketValue}
               retailPrice={data.retailPrice}

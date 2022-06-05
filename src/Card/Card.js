@@ -5,9 +5,9 @@ const Card = (props) =>{
           <img src={props.image} alt={props.name}></img>
         </div>
         <div>
-          <h3 className="font-bold text-center text-2xl">{props.name}</h3>
+          <h3 className="font-bold text-center text-2xl h-10">{props.name}</h3>
         </div>
-        <div>
+        <div className="w-11/12 m-centered">
           <ul>
             <li className="font-bold">Release Date: {props.releaseDate}</li>
             <li className="font-bold">Brand: {props.brand}</li>
@@ -17,7 +17,7 @@ const Card = (props) =>{
             </li>
           </ul>
         </div>
-        <button className="bg-detailBtn hover:bg-detailBtn text-white font-bold hover:text-white py-2 px-4 border border-detailBtn hover:border-transparent rounded">
+        <button className="block m-centered bg-detailBtn hover:bg-detailBtn text-white font-bold hover:text-white py-2 px-4 border border-detailBtn hover:border-transparent rounded">
           <a href="#">See detail</a>
         </button>
       </div>
