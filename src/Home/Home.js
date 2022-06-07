@@ -8,7 +8,7 @@ const Home = () => {
     <div>
       <Header />
       <main
-        className="w-screen xl:bg-cover bg-contain mb-12"
+        className="w-screen h-auto bg-cover xl:bg-contain"
         style={{ backgroundImage: `url(${offWhite})` }}
       >
         <Sneaker />

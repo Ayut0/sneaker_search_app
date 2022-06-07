@@ -1,11 +1,12 @@
 import { useState, useEffect } from "react";
+import { Outlet } from "react-router-dom";
 import axios from "axios";
 import Card from "../Card/Card";
 
 const Sneaker = () => {
   const [sneakerData, setSneakerData] = useState([]);
   const [sneakerName, setSneakerName] = useState('');
-
+ 
   const options = {
     method: "GET",
     url: "https://the-sneaker-database.p.rapidapi.com/search",
@@ -80,23 +81,26 @@ const Sneaker = () => {
           </button>
         </div>
       </form>
-      <section className="flex flex-wrap w-11/12 m-centered mt-12 gap-y-12">
+      <section className="flex flex-wrap w-11/12 m-centered mt-12 gap-y-12 pb-12">
         {sneakerData &&
           sneakerData.map((data) => (
-            <Card
-              key={data.id}
-              id={data.id}
-              name={data.name}
-              image={data.image.thumbnail}
-              brand={data.brand}
-              estimatedValue={data.estimatedMarketValue}
-              retailPrice={data.retailPrice}
-              releaseDate={data.releaseDate || `Unknown`}
-              links={data.links}
-              story={data.story || `No story given`}
-            />
+            <div>
+              <Card
+                key={data.id}
+                id={data.id}
+                name={data.name}
+                image={data.image.thumbnail}
+                brand={data.brand}
+                estimatedValue={data.estimatedMarketValue}
+                retailPrice={data.retailPrice}
+                releaseDate={data.releaseDate || `Unknown`}
+                links={data.links}
+                story={data.story || `No story given`}
+              />
+            </div>
           ))}
       </section>
+      <Outlet />
     </div>
   );
 }
