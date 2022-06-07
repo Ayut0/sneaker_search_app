@@ -1,5 +1,5 @@
 // import './App.css';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route} from 'react-router-dom';
 import HeroPage from './HeroPage/HeroPage';
 import Home from './Home/Home';
 import Detail from './DetailPage/DetailPage';
@@ -9,9 +9,10 @@ function App() {
   return (
     <div className="App">
         <Routes>
-          <Route path="/home" element={<Home />} />
+          <Route path="/home" element={<Home />}>
+            <Route path=":detailId" element={<Detail />} />
+          </Route>
           <Route path="/" element={<HeroPage />} />
-          <Route path="/detail" element={<Detail />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
     </div>
