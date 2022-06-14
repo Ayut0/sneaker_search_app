@@ -9,6 +9,7 @@ module.exports = {
       },
       backgroundColor: {
         header: "#414244",
+        main: "#E9E8E3",
       },
       margin: {
         centered: "0 auto",
