@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 const Detail = () => {
   const params = useParams();
@@ -6,7 +6,8 @@ const Detail = () => {
 
   return (
     <section>
-      <h2>Detail Page {params}</h2>
+      <h2>Detail Page</h2>
+      <Link to="/home">Back to home</Link>
     </section>
   );
 };
