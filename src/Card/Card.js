@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 
 const Card = (props) => {
   return (
@@ -22,6 +22,7 @@ const Card = (props) => {
       <button className="block m-centered bg-detailBtn hover:bg-detailBtn text-white font-bold hover:text-white py-2 px-4 border border-detailBtn hover:border-transparent rounded">
         <Link to={`/detail/${props.id}`}>See detail</Link>
       </button>
+      <Outlet />
     </div>
   );
 };

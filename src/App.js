@@ -10,8 +10,8 @@ function App() {
     <div className="App">
         <Routes>
           <Route path="/home" element={<Home />}>
-            <Route path=":detailId" element={<Detail />} />
           </Route>
+          <Route path=":detailId" element={<Detail />} />
           <Route path="/" element={<HeroPage />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
