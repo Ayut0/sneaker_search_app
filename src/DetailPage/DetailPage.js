@@ -1,12 +1,17 @@
 import { Fragment } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useLocation } from "react-router-dom";
 import Header from "../HeroPage/Header";
 
-const Detail = () => {
+
+const Detail = (props) => {
   const params = useParams();
   const detailId = params.detailId;
+  const location = useLocation();
   console.log(params);
   console.log(detailId);
+  console.log(props)
+  console.log(location)
+
 
   return (
     <Fragment>
@@ -17,26 +22,28 @@ const Detail = () => {
           <img alt="" src=""></img>
         </div>
         <div>
-          <h2 className="font-black">Sneaker name: {`${detailId}`}</h2>
+          <h2 className="font-black">
+            {props.name}: {`${detailId}`}
+          </h2>
           <section>
             <h3 className="font-bold">Release Date: </h3>
-            <span>YYYY/MM/DD</span>
+            <span>{props.releaseDate}</span>
           </section>
           <section>
             <h3 className="font-bold">Brand: </h3>
-            <span>Nike</span>
+            <span>{props.brand}</span>
           </section>
           <section>
             <h3 className="font-bold">Retail Price: </h3>
-            <span>$$$</span>
+            <span>{props.retailPrice}</span>
           </section>
           <section>
             <h3 className="font-bold">Estimated Market Price: </h3>
-            <span>$$$</span>
+            <span>${props.estimatedValue}</span>
           </section>
           <article>
             <h3>Story</h3>
-            <span>This sneaker is ....</span>
+            <span>{props.story}</span>
           </article>
           <section>
             <h3>Buy at</h3>

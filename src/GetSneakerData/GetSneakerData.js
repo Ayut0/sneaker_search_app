@@ -35,8 +35,6 @@ const Sneaker = () => {
     // }, []);
   };
 
-  // console.log(sneakerData);
-
   return (
     <div>
       <form className="w-9/12 m-centered pt-32" onSubmit={GetSneakerData}>
@@ -90,7 +88,7 @@ const Sneaker = () => {
                 name={data.name}
                 image={data.image.small}
                 brand={data.brand}
-                estimatedValue={data.estimatedMarketValue}
+                estimatedValue={data.estimatedMarketValue !== 0? data.estimatedMarketValue: 'Unknown'}
                 retailPrice={data.retailPrice}
                 releaseDate={data.releaseDate || `Unknown`}
                 links={data.links}
