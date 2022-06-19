@@ -1,7 +1,9 @@
-import { Fragment } from "react";
+import { Fragment, useState } from "react";
 import { Link, Outlet } from "react-router-dom";
 
 const Card = (props) => {
+  const [data, setData] = useState(props);
+  console.log(data);
   return (
     <Fragment>
       <div className="bg-card opacity-95 m-centered w-full lg:w-30">
@@ -22,7 +24,7 @@ const Card = (props) => {
           </ul>
         </div>
         <button className="block m-centered bg-detailBtn hover:bg-detailBtn text-white font-bold hover:text-white py-2 px-4 border border-detailBtn hover:border-transparent rounded">
-          <Link to={`/detail/${props.id}`}>See detail</Link>
+          <Link to={`/detail/${props.id}`} state={{data: data}}>See detail</Link>
         </button>
         <Outlet />
       </div>
