@@ -10,7 +10,7 @@ const Sneaker = () => {
   const options = {
     method: "GET",
     url: "https://the-sneaker-database.p.rapidapi.com/search",
-    params: { limit: "100", query: `${sneakerName}` },
+    params: { limit: "20", query: `${sneakerName}` },
     headers: {
       "X-RapidAPI-Host": "the-sneaker-database.p.rapidapi.com",
       "X-RapidAPI-Key": `${process.env.REACT_APP_RAPID_API_KEY}`,
@@ -84,12 +84,11 @@ const Sneaker = () => {
       <section className="flex flex-wrap w-11/12 m-centered mt-12 gap-y-12 pb-12">
         {sneakerData &&
           sneakerData.map((data) => (
-            <div>
               <Card
                 key={data.id}
                 id={data.id}
                 name={data.name}
-                image={data.image.thumbnail}
+                image={data.image.small}
                 brand={data.brand}
                 estimatedValue={data.estimatedMarketValue}
                 retailPrice={data.retailPrice}
@@ -97,8 +96,8 @@ const Sneaker = () => {
                 links={data.links}
                 story={data.story || `No story given`}
               />
-            </div>
           ))}
+          {/* <Card></Card> */}
       </section>
       <Outlet />
     </div>
