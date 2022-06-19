@@ -1,12 +1,15 @@
+import { Fragment } from "react";
 import { Link, useParams } from "react-router-dom";
 import Header from "../HeroPage/Header";
 
 const Detail = () => {
-  const detailId = useParams();
+  const params = useParams();
+  const detailId = params.detailId;
+  console.log(params);
   console.log(detailId);
 
   return (
-    <div>
+    <Fragment>
       <Header />
       <Link to="/home">Back to home</Link>
       <section className="lg:flex m-centered w-11/12">
@@ -14,7 +17,7 @@ const Detail = () => {
           <img alt="" src=""></img>
         </div>
         <div>
-          <h2 className="font-black">Sneaker name: {`${detailId.detailId}`}</h2>
+          <h2 className="font-black">Sneaker name: {`${detailId}`}</h2>
           <section>
             <h3 className="font-bold">Release Date: </h3>
             <span>YYYY/MM/DD</span>
@@ -45,7 +48,7 @@ const Detail = () => {
           </section>
         </div>
       </section>
-    </div>
+    </Fragment>
   );
 };
 
