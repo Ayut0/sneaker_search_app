@@ -1,23 +1,27 @@
-import { Fragment } from "react";
-import { Link, useParams, useLocation } from "react-router-dom";
+import React, { Fragment, useContext } from "react";
+// import { SneakerData } from "../Card/Card";
+import { Link, useParams, useLocation} from "react-router-dom";
 import Header from "../HeroPage/Header";
 
 
-const Detail = (props) => {
+const Detail = ({data}) => {
   const params = useParams();
   const detailId = params.detailId;
+  // const data = useContext(SneakerData)
   const location = useLocation();
-  console.log(params);
-  console.log(detailId);
-  console.log(props)
-  console.log(location)
-
+  // const searchParams = createSearchParams(props);
+  // console.log(params);
+  // console.log(detailId);
+  // console.log(props);
+  console.log(data);
+  console.log(location);
+  // console.log(searchParams);
 
   return (
     <Fragment>
       <Header />
       <Link to="/home">Back to home</Link>
-      <section className="lg:flex m-centered w-11/12">
+      {/* <section className="lg:flex m-centered w-11/12">
         <div>
           <img alt="" src=""></img>
         </div>
@@ -54,7 +58,7 @@ const Detail = (props) => {
             </div>
           </section>
         </div>
-      </section>
+      </section> */}
     </Fragment>
   );
 };

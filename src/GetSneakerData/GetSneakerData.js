@@ -1,9 +1,11 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { Outlet } from "react-router-dom";
 import axios from "axios";
 import Card from "../Card/Card";
 
-const Sneaker = () => {
+export const ContextData = React.createContext('');
+
+const Sneaker = ({changeValue}) => {
   const [sneakerData, setSneakerData] = useState([]);
   const [sneakerName, setSneakerName] = useState('');
  
@@ -31,11 +33,15 @@ const Sneaker = () => {
         console.error(error);
         alert(error.message);
       });
+    };
+    console.log(sneakerData);
+    changeValue(sneakerData);
     // useEffect(() => {
-    // }, []);
-  };
+      //   setValue(sneakerData);
+      // }, []);
 
   return (
+    <ContextData.Provider value={{sneakerData}}>
     <div>
       <form className="w-9/12 m-centered pt-32" onSubmit={GetSneakerData}>
         <label
@@ -99,6 +105,7 @@ const Sneaker = () => {
       </section>
       <Outlet />
     </div>
+    </ContextData.Provider>
   );
 }
 
