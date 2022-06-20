@@ -4,16 +4,25 @@ import HeroPage from './HeroPage/HeroPage';
 import Home from './Home/Home';
 import Detail from './DetailPage/DetailPage';
 import NotFound from './NotFoundPage/NotFoundPage';
+import { useEffect, useState } from 'react';
 
-function App() {
+function App(props) {
+  const [data, setData] = useState([]);
+  const changeData = (element) =>{
+    setData(element)
+  }
+  useEffect(() =>{
+    setData(data)
+  }, [])
+  console.log(data);
   return (
     <div className="App">
-        <Routes>
-          <Route path="/home" element={<Home />} />
-          <Route path="/detail/:detailId" element={<Detail />} />
-          <Route path="/" element={<HeroPage />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
+      <Routes>
+        <Route path="/home" element={<Home setData={setData} />} />
+        <Route path="/detail/:detailId" element={<Detail data={data}/>} />
+        <Route path="/" element={<HeroPage />} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
     </div>
   );
 }
