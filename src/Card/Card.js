@@ -30,12 +30,15 @@ const Card = (props) => {
             </li>
           </ul>
         </div>
-        <button onClick={() => toDetail()} className="block m-centered bg-detailBtn hover:bg-detailBtn text-white font-bold hover:text-white py-2 px-4 border border-detailBtn hover:border-transparent rounded">
+        <button
+          onClick={() => toDetail()}
+          className="block m-centered bg-detailBtn hover:bg-detailBtn text-white font-bold hover:text-white py-2 px-4 border border-detailBtn hover:border-transparent rounded"
+        >
           {/* //Tried {props} {data: data} {props: state} useContext {data} lifting state up, */}
-            {/* <Link to={`/detail/${props.id}`} state={{data: 'brand', value}} >See detail</Link> */}
+          {/* <Link to={`/detail/${props.id}`} state={{data: 'brand', value}} >See detail</Link> */}
           {/* <SneakerData.Provider value={data}>
           </SneakerData.Provider> */}
-          See Detail
+          See detail
         </button>
         <Outlet />
       </div>

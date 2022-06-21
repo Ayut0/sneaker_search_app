@@ -1,5 +1,4 @@
-import React, { Fragment, useContext } from "react";
-// import { SneakerData } from "../Card/Card";
+import React, { Fragment} from "react";
 import { Link, useParams, useLocation} from "react-router-dom";
 import Header from "../HeroPage/Header";
 
@@ -7,16 +6,23 @@ import Header from "../HeroPage/Header";
 const Detail = ({data}) => {
   const params = useParams();
   const detailId = params.detailId;
-  // const data = useContext(SneakerData)
   const location = useLocation();
-  // const searchParams = createSearchParams(props);
-  // console.log(params);
-  // console.log(detailId);
-  // console.log(props);
-  // console.log(data);
   console.log(location.state);
   const sneakerInfo = location.state;
-  // console.log(searchParams);
+
+  console.log(Object.entries(sneakerInfo.links));
+  const linkArray = Object.entries(sneakerInfo.links);
+
+  const linkButtons = () => {
+    return linkArray.map((item, index)=>{
+      return (
+        <span><a href={`${item[1]}`}>{`${item[0]}`}</a></span>
+      )
+    })
+  }
+
+  console.log(linkButtons())
+
 
   return (
     <Fragment>
@@ -53,9 +59,7 @@ const Detail = ({data}) => {
           <section>
             <h3 className="font-bold text-xl">Check availability at</h3>
             <div className="flex">
-              <button>FLIGHT CLUB</button>
-              <button>Stock X</button>
-              <button>GOAT</button>
+              {linkButtons()}
             </div>
           </section>
         </div>
