@@ -13,44 +13,45 @@ const Detail = ({data}) => {
   // console.log(params);
   // console.log(detailId);
   // console.log(props);
-  console.log(data);
-  console.log(location);
+  // console.log(data);
+  console.log(location.state);
+  const sneakerInfo = location.state;
   // console.log(searchParams);
 
   return (
     <Fragment>
       <Header />
       <Link to="/home">Back to home</Link>
-      {/* <section className="lg:flex m-centered w-11/12">
+      <section className="lg:flex m-centered w-11/12">
         <div>
-          <img alt="" src=""></img>
+          <img alt={sneakerInfo.name} src={sneakerInfo.image}></img>
         </div>
         <div>
-          <h2 className="font-black">
-            {props.name}: {`${detailId}`}
+          <h2 className="font-black text-center text-3xl">
+            {sneakerInfo.name}
           </h2>
           <section>
-            <h3 className="font-bold">Release Date: </h3>
-            <span>{props.releaseDate}</span>
+            <h3 className="font-bold text-xl">Release Date: </h3>
+            <span>{sneakerInfo.releaseDate}</span>
           </section>
           <section>
-            <h3 className="font-bold">Brand: </h3>
-            <span>{props.brand}</span>
+            <h3 className="font-bold text-xl">Brand: </h3>
+            <span>{sneakerInfo.brand}</span>
           </section>
           <section>
-            <h3 className="font-bold">Retail Price: </h3>
-            <span>{props.retailPrice}</span>
+            <h3 className="font-bold text-xl">Retail Price: </h3>
+            <span>{sneakerInfo.retailPrice}</span>
           </section>
           <section>
-            <h3 className="font-bold">Estimated Market Price: </h3>
-            <span>${props.estimatedValue}</span>
+            <h3 className="font-bold text-xl">Estimated Market Price: </h3>
+            <span>${sneakerInfo.estimatedValue}</span>
           </section>
           <article>
-            <h3>Story</h3>
-            <span>{props.story}</span>
+            <h3 className="font-bold text-xl">Story</h3>
+            <span>{sneakerInfo.story}</span>
           </article>
           <section>
-            <h3>Buy at</h3>
+            <h3 className="font-bold text-xl">Check availability at</h3>
             <div className="flex">
               <button>FLIGHT CLUB</button>
               <button>Stock X</button>
@@ -58,7 +59,7 @@ const Detail = ({data}) => {
             </div>
           </section>
         </div>
-      </section> */}
+      </section>
     </Fragment>
   );
 };
