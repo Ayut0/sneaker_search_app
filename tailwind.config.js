@@ -13,6 +13,7 @@ module.exports = {
         header: "#414244",
         main: "#E9E8E3",
         goat: "#232420",
+        detail: "#F8F8F8",
       },
       margin: {
         centered: "0 auto",
