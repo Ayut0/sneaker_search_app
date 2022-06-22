@@ -35,7 +35,7 @@ const Detail = ({data}) => {
       return (
         item[1] && (
           <span
-            className={`w-full text-center p-8 border-solid border rounded-lg
+            className={`w-full text-center p-8 border-solid border rounded-lg lg:w-1/2 lg:p-4
             ${resaleMarket(item[0])}
             `}
           >
@@ -52,12 +52,13 @@ const Detail = ({data}) => {
   return (
     <Fragment>
       <Header />
-      <Link to="/home">Back to home</Link>
-      <section className="lg:flex m-centered w-11/12">
-        <div>
+      <section className="bg-detail">
+        <Link to="/home" target="_blank">Back to home</Link>
+        <section className="lg:flex m-centered w-11/12">
+        <div className="lg:w-1/2">
           <img alt={sneakerInfo.name} src={sneakerInfo.image}></img>
         </div>
-        <div>
+        <div className="lg:w-1/2">
           <h2 className="font-black text-center text-3xl mb-12">
             {sneakerInfo.name}
           </h2>
@@ -88,6 +89,8 @@ const Detail = ({data}) => {
             </div>
           </section>
         </div>
+        </section>
+
       </section>
     </Fragment>
   );
