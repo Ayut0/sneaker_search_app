@@ -52,45 +52,46 @@ const Detail = ({data}) => {
   return (
     <Fragment>
       <Header />
-      <section className="bg-detail">
-        <Link to="/home" target="_blank">Back to home</Link>
+      <section className="bg-detail xl:pt-24">
+        <Link to="/home" target="_blank">
+          Back to home
+        </Link>
         <section className="lg:flex m-centered w-11/12">
-        <div className="lg:w-1/2">
-          <img alt={sneakerInfo.name} src={sneakerInfo.image}></img>
-        </div>
-        <div className="lg:w-1/2">
-          <h2 className="font-black text-center text-3xl mb-12">
-            {sneakerInfo.name}
-          </h2>
-          <section className="flex justify-between align-center mb-3">
-            <h3 className="font-bold text-xl">Release Date</h3>
-            <span>{sneakerInfo.releaseDate}</span>
-          </section>
-          <section className="flex justify-between align-center mb-3">
-            <h3 className="font-bold text-xl">Brand</h3>
-            <span>{sneakerInfo.brand}</span>
-          </section>
-          <section className="flex justify-between align-center mb-3">
-            <h3 className="font-bold text-xl">Retail Price</h3>
-            <span>US${sneakerInfo.retailPrice}</span>
-          </section>
-          <section className="flex justify-between align-center mb-3">
-            <h3 className="font-bold text-xl">Estimated Market Price</h3>
-            <span>US${sneakerInfo.estimatedValue}</span>
-          </section>
-          <article className="mb-3">
-            <h3 className="font-bold text-xl mb-2">Story</h3>
-            <span>{unEscape(sneakerInfo.story)}</span>
-          </article>
-          <section>
-            <h3 className="font-bold text-xl">Check availability at</h3>
-            <div className="flex m-centered flex-wrap w-90 justify-center gap-y-4 mt-8">
-              {linkButtons()}
-            </div>
-          </section>
-        </div>
+          <div className="lg:w-1/2">
+            <img alt={sneakerInfo.name} src={sneakerInfo.image}></img>
+          </div>
+          <div className="lg:w-1/2">
+            <h2 className="font-black text-center text-3xl mb-12">
+              {sneakerInfo.name}
+            </h2>
+            <section className="flex justify-between align-center mb-3">
+              <h3 className="font-bold text-xl">Release Date</h3>
+              <span>{sneakerInfo.releaseDate}</span>
+            </section>
+            <section className="flex justify-between align-center mb-3">
+              <h3 className="font-bold text-xl">Brand</h3>
+              <span>{sneakerInfo.brand}</span>
+            </section>
+            <section className="flex justify-between align-center mb-3">
+              <h3 className="font-bold text-xl">Retail Price</h3>
+              <span>US${sneakerInfo.retailPrice}</span>
+            </section>
+            <section className="flex justify-between align-center mb-3">
+              <h3 className="font-bold text-xl">Estimated Market Price</h3>
+              <span>US${sneakerInfo.estimatedValue}</span>
+            </section>
+            <article className="mb-3">
+              <h3 className="font-bold text-xl mb-2">Story</h3>
+              <span>{unEscape(sneakerInfo.story)}</span>
+            </article>
+            <section>
+              <h3 className="font-bold text-xl">Check availability at</h3>
+              <div className="flex m-centered flex-wrap w-90 justify-center gap-y-4 mt-8">
+                {linkButtons()}
+              </div>
+            </section>
+          </div>
         </section>
-
       </section>
     </Fragment>
   );
