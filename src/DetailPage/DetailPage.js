@@ -7,22 +7,47 @@ const Detail = ({data}) => {
   const params = useParams();
   const detailId = params.detailId;
   const location = useLocation();
-  console.log(location.state);
   const sneakerInfo = location.state;
-
-  console.log(Object.entries(sneakerInfo.links));
   const linkArray = Object.entries(sneakerInfo.links);
+
+  const unEscape = (htmlStr) =>{
+    htmlStr = htmlStr.replace(/&lt;/g, "<");
+    htmlStr = htmlStr.replace(/&gt;/g, ">");
+    htmlStr = htmlStr.replace(/&quot;/g, '"');
+    htmlStr = htmlStr.replace(/&#39;/g, "'");
+    htmlStr = htmlStr.replace(/&amp;/g, "&");
+    return htmlStr;
+  }
+
+  const resaleMarket = (company) => {
+    if(company === "stockX"){
+      return "text-stockX";
+    }else if(company === "goat"){
+      return "text-white bg-goat"
+    }else if(company === "flightClub"){
+      return "text-flightClub";
+    }
+  }
 
   const linkButtons = () => {
     return linkArray.map((item, index)=>{
+      console.log(item);
       return (
-        <span><a href={`${item[1]}`}>{`${item[0]}`}</a></span>
-      )
+        item[1] && (
+          <span
+            className={`w-full text-center p-8 border-solid border rounded-lg
+            ${resaleMarket(item[0])}
+            `}
+          >
+            <a
+              href={`${item[1]}`}
+              className="text-2xl font-bold"
+            >{`${item[0]}`}</a>
+          </span>
+        )
+      );
     })
   }
-
-  console.log(linkButtons())
-
 
   return (
     <Fragment>
@@ -33,32 +58,32 @@ const Detail = ({data}) => {
           <img alt={sneakerInfo.name} src={sneakerInfo.image}></img>
         </div>
         <div>
-          <h2 className="font-black text-center text-3xl">
+          <h2 className="font-black text-center text-3xl mb-12">
             {sneakerInfo.name}
           </h2>
-          <section>
-            <h3 className="font-bold text-xl">Release Date: </h3>
+          <section className="flex justify-between align-center mb-3">
+            <h3 className="font-bold text-xl">Release Date</h3>
             <span>{sneakerInfo.releaseDate}</span>
           </section>
-          <section>
-            <h3 className="font-bold text-xl">Brand: </h3>
+          <section className="flex justify-between align-center mb-3">
+            <h3 className="font-bold text-xl">Brand</h3>
             <span>{sneakerInfo.brand}</span>
           </section>
-          <section>
-            <h3 className="font-bold text-xl">Retail Price: </h3>
-            <span>{sneakerInfo.retailPrice}</span>
+          <section className="flex justify-between align-center mb-3">
+            <h3 className="font-bold text-xl">Retail Price</h3>
+            <span>US${sneakerInfo.retailPrice}</span>
           </section>
-          <section>
-            <h3 className="font-bold text-xl">Estimated Market Price: </h3>
-            <span>${sneakerInfo.estimatedValue}</span>
+          <section className="flex justify-between align-center mb-3">
+            <h3 className="font-bold text-xl">Estimated Market Price</h3>
+            <span>US${sneakerInfo.estimatedValue}</span>
           </section>
-          <article>
-            <h3 className="font-bold text-xl">Story</h3>
-            <span>{sneakerInfo.story}</span>
+          <article className="mb-3">
+            <h3 className="font-bold text-xl mb-2">Story</h3>
+            <span>{unEscape(sneakerInfo.story)}</span>
           </article>
           <section>
             <h3 className="font-bold text-xl">Check availability at</h3>
-            <div className="flex">
+            <div className="flex m-centered flex-wrap w-90 justify-center gap-y-4 mt-8">
               {linkButtons()}
             </div>
           </section>

@@ -1,5 +1,5 @@
 import React, { Fragment, useState } from "react";
-import { Link, Outlet, useNavigate } from "react-router-dom";
+import { Outlet, useNavigate } from "react-router-dom";
 // export const SneakerData = React.createContext();
 
 const Card = (props) => {
