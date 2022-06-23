@@ -1,6 +1,5 @@
 import React, { Fragment, useState } from "react";
 import { Outlet, useNavigate } from "react-router-dom";
-// export const SneakerData = React.createContext();
 
 const Card = (props) => {
   const [data, setData] = useState(props);
@@ -34,10 +33,6 @@ const Card = (props) => {
           onClick={() => toDetail()}
           className="block m-centered bg-detailBtn hover:bg-detailBtn text-white font-bold hover:text-white py-2 px-4 border border-detailBtn hover:border-transparent rounded"
         >
-          {/* //Tried {props} {data: data} {props: state} useContext {data} lifting state up, */}
-          {/* <Link to={`/detail/${props.id}`} state={{data: 'brand', value}} >See detail</Link> */}
-          {/* <SneakerData.Provider value={data}>
-          </SneakerData.Provider> */}
           See detail
         </button>
         <Outlet />

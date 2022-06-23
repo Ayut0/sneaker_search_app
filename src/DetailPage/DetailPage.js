@@ -53,9 +53,6 @@ const Detail = ({data}) => {
     <Fragment>
       <Header />
       <section className="bg-detail pt-24">
-        {/* <Link to="/home" target="_blank">
-          Back to home
-        </Link> */}
         <Breadcrumbs></Breadcrumbs>
         <section className="lg:flex m-centered w-11/12">
           <div className="lg:w-1/2">
@@ -72,6 +69,10 @@ const Detail = ({data}) => {
             <section className="flex justify-between align-center mb-3">
               <h3 className="font-bold text-xl">Brand</h3>
               <span>{sneakerInfo.brand}</span>
+            </section>
+            <section className="flex justify-between align-center mb-3">
+              <h3 className="font-bold text-xl">Colorway</h3>
+              <span>{sneakerInfo.color}</span>
             </section>
             <section className="flex justify-between align-center mb-3">
               <h3 className="font-bold text-xl">Retail Price</h3>

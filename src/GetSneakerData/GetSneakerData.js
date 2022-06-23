@@ -8,7 +8,7 @@ export const ContextData = React.createContext('');
 const Sneaker = ({changeValue}) => {
   const [sneakerData, setSneakerData] = useState([]);
   const [sneakerName, setSneakerName] = useState('');
- 
+
   const options = {
     method: "GET",
     url: "https://the-sneaker-database.p.rapidapi.com/search",
@@ -99,9 +99,9 @@ const Sneaker = ({changeValue}) => {
                 releaseDate={data.releaseDate || `Unknown`}
                 links={data.links}
                 story={data.story || `No story given`}
+                color={data.colorway}
               />
           ))}
-          {/* <Card></Card> */}
       </section>
       <Outlet />
     </div>
