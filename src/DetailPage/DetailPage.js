@@ -1,6 +1,7 @@
 import React, { Fragment} from "react";
 import { Link, useParams, useLocation} from "react-router-dom";
 import Header from "../HeroPage/Header";
+import Breadcrumbs from "../Breadcrumbs";
 
 
 const Detail = ({data}) => {
@@ -30,8 +31,7 @@ const Detail = ({data}) => {
   }
 
   const linkButtons = () => {
-    return linkArray.map((item, index)=>{
-      console.log(item);
+    return linkArray.map((item)=>{
       return (
         item[1] && (
           <span
@@ -53,9 +53,10 @@ const Detail = ({data}) => {
     <Fragment>
       <Header />
       <section className="bg-detail xl:pt-24">
-        <Link to="/home" target="_blank">
+        {/* <Link to="/home" target="_blank">
           Back to home
-        </Link>
+        </Link> */}
+        <Breadcrumbs></Breadcrumbs>
         <section className="lg:flex m-centered w-11/12">
           <div className="lg:w-1/2">
             <img alt={sneakerInfo.name} src={sneakerInfo.image}></img>

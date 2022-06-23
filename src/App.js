@@ -14,7 +14,7 @@ function App(props) {
   useEffect(() =>{
     setData(data)
   }, [])
-  console.log(data);
+  // console.log(data);
   return (
     <div className="App">
       <Routes>
