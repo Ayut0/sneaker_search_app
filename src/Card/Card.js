@@ -7,7 +7,7 @@ const Card = (props) => {
   console.log(data);
   const navigate = useNavigate();
   const toDetail = () =>{
-    navigate(`/detail/${props.id}`, {state: data})
+    navigate(`/${props.id}`, {state: data})
   }
 
   return (

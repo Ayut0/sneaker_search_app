@@ -1,7 +1,8 @@
 import React, { Fragment} from "react";
-import { Link, useParams, useLocation} from "react-router-dom";
+import { useParams, useLocation} from "react-router-dom";
 import Header from "../HeroPage/Header";
 import Breadcrumbs from "../Breadcrumbs";
+import Footer from "../HeroPage/Footer";
 
 
 const Detail = ({data}) => {
@@ -52,7 +53,7 @@ const Detail = ({data}) => {
   return (
     <Fragment>
       <Header />
-      <section className="bg-detail pt-24">
+      <section className="bg-detail pt-24 pb-12">
         <Breadcrumbs></Breadcrumbs>
         <section className="lg:flex m-centered w-11/12">
           <div className="lg:w-1/2">
@@ -62,23 +63,23 @@ const Detail = ({data}) => {
             <h2 className="font-black text-center text-3xl mb-12">
               {sneakerInfo.name}
             </h2>
-            <section className="flex justify-between align-center mb-3">
+            <section className="flex justify-between align-center mb-3 items-center">
               <h3 className="font-bold text-xl">Release Date</h3>
               <span>{sneakerInfo.releaseDate}</span>
             </section>
-            <section className="flex justify-between align-center mb-3">
+            <section className="flex justify-between align-center mb-3 items-center">
               <h3 className="font-bold text-xl">Brand</h3>
               <span>{sneakerInfo.brand}</span>
             </section>
-            <section className="flex justify-between align-center mb-3">
+            <section className="flex justify-between align-center mb-3 items-center">
               <h3 className="font-bold text-xl">Colorway</h3>
               <span>{sneakerInfo.color}</span>
             </section>
-            <section className="flex justify-between align-center mb-3">
+            <section className="flex justify-between align-center mb-3 items-center">
               <h3 className="font-bold text-xl">Retail Price</h3>
               <span>US${sneakerInfo.retailPrice}</span>
             </section>
-            <section className="flex justify-between align-center mb-3">
+            <section className="flex justify-between align-center mb-3 items-center">
               <h3 className="font-bold text-xl">Estimated Market Price</h3>
               <span>US${sneakerInfo.estimatedValue}</span>
             </section>
@@ -95,6 +96,7 @@ const Detail = ({data}) => {
           </div>
         </section>
       </section>
+      <Footer />
     </Fragment>
   );
 };
