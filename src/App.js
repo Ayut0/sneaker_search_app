@@ -19,7 +19,7 @@ function App(props) {
     <div className="App">
       <Routes>
         <Route path="/home" element={<Home setData={setData} />} />
-        <Route path="/detail/:detailId" element={<Detail data={data}/>} />
+        <Route path="/:detailId" element={<Detail data={data}/>} />
         <Route path="/" element={<HeroPage />} />
         <Route path="*" element={<NotFound />} />
       </Routes>

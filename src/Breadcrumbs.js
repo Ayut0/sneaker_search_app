@@ -18,7 +18,7 @@ const Breadcrumbs = () =>{
           <span key={match.pathname}>
             {index > 0 && <> / </>}
             <NavLink to={match.pathname}>
-              {index === 2 ? eachItem[2] : breadcrumb}
+              {index === 1 ? eachItem[1] : breadcrumb}
             </NavLink>
           </span>
         ))}
