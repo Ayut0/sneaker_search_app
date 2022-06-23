@@ -52,7 +52,7 @@ const Detail = ({data}) => {
   return (
     <Fragment>
       <Header />
-      <section className="bg-detail xl:pt-24">
+      <section className="bg-detail pt-24">
         {/* <Link to="/home" target="_blank">
           Back to home
         </Link> */}

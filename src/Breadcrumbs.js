@@ -6,16 +6,24 @@ const Breadcrumbs = () =>{
     const breadcrumbs = useReactRouterBreadcrumbs();
     console.log(breadcrumbs);
 
-    return(
-        <Fragment>
-            {breadcrumbs.map(({match, breadcrumb}, index) => (
-                <span key={match.pathname}>
-                    {index > 0 && <> / </>}
-                    <NavLink to={match.pathname}>{breadcrumb}</NavLink>
-                </span>
-            ))};
-        </Fragment>
-    )
+    const eachItem = breadcrumbs.map((breadcrumb) =>{
+        return breadcrumb.location.state.name;
+    })
+
+    console.log(eachItem);
+
+    return (
+      <Fragment>
+        {breadcrumbs.map(({ match, breadcrumb }, index) => (
+          <span key={match.pathname}>
+            {index > 0 && <> / </>}
+            <NavLink to={match.pathname}>
+              {index === 2 ? eachItem[2] : breadcrumb}
+            </NavLink>
+          </span>
+        ))}
+      </Fragment>
+    );
 }
 
 export default Breadcrumbs;
