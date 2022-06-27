@@ -1,17 +1,13 @@
-// import './App.css';
 import React, { Suspense } from 'react';
 import { Routes, Route} from 'react-router-dom';
-// import HeroPage from './HeroPage/HeroPage';
-// import Home from './Home/Home';
 import Detail from './DetailPage/DetailPage';
-// import NotFound from './NotFoundPage/NotFoundPage';
 import { useEffect, useState } from 'react';
 
 const Home = React.lazy(() => import('./Home/Home.js'));
 const HeroPage = React.lazy(() => import('./HeroPage/HeroPage.js'));
 const NotFound = React.lazy(() => import('./NotFoundPage/NotFoundPage.js'));
 
-function App(props) {
+function App() {
   const [data, setData] = useState([]);
   const changeData = (element) =>{
     setData(element)
@@ -19,7 +15,7 @@ function App(props) {
   useEffect(() =>{
     setData(data)
   }, [])
-  // console.log(data);
+
   return (
     <div className="App">
       <Suspense fallback={<span>Loading....</span>}>
