@@ -24,10 +24,10 @@ const Home = ( {setData} ) => {
     <div>
       <Header />
       <main
-        className="w-screen h-screen bg-main bg-cover xl:bg-contain"
+        className="w-screen min-h-screen bg-main bg-cover xl:bg-contain"
         // style={{ backgroundImage: `url(${offWhite})` }}
       >
-        <Sneaker changeValue={changeValue}/>
+        <Sneaker changeValue={changeValue} />
       </main>
       <Footer />
     </div>
