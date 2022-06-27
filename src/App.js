@@ -1,10 +1,15 @@
 // import './App.css';
+import React, { Suspense } from 'react';
 import { Routes, Route} from 'react-router-dom';
-import HeroPage from './HeroPage/HeroPage';
-import Home from './Home/Home';
+// import HeroPage from './HeroPage/HeroPage';
+// import Home from './Home/Home';
 import Detail from './DetailPage/DetailPage';
-import NotFound from './NotFoundPage/NotFoundPage';
+// import NotFound from './NotFoundPage/NotFoundPage';
 import { useEffect, useState } from 'react';
+
+const Home = React.lazy(() => import('./Home/Home.js'));
+const HeroPage = React.lazy(() => import('./HeroPage/HeroPage.js'));
+const NotFound = React.lazy(() => import('./NotFoundPage/NotFoundPage.js'));
 
 function App(props) {
   const [data, setData] = useState([]);
@@ -17,12 +22,14 @@ function App(props) {
   // console.log(data);
   return (
     <div className="App">
-      <Routes>
-        <Route path="/home" element={<Home setData={setData} />} />
-        <Route path="/:detailId" element={<Detail data={data}/>} />
-        <Route path="/" element={<HeroPage />} />
-        <Route path="*" element={<NotFound />} />
-      </Routes>
+      <Suspense fallback={<span>Loading....</span>}>
+        <Routes>
+          <Route path="/home" element={<Home setData={setData} />} />
+          <Route path="/:detailId" element={<Detail data={data}/>} />
+          <Route path="/" element={<HeroPage />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </Suspense>
     </div>
   );
 }
