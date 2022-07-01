@@ -4,7 +4,7 @@ module.exports = {
     extend: {
       colors: {
         heading: "#FEF6E4",
-        card: "#CCCCCC",
+        card: "#ffffff",
         detailBtn: "#FFB906",
         stockX: "#016240",
         flightClub: "#E91C22",
