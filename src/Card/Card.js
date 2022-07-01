@@ -1,5 +1,6 @@
 import React, { Fragment, useState } from "react";
 import { Outlet, useNavigate } from "react-router-dom";
+import noAvailableImage from "../pics/No-image-available.webp"
 
 const Card = (props) => {
   const [data, setData] = useState(props);
@@ -12,9 +13,9 @@ const Card = (props) => {
 
   return (
     <Fragment>
-      <div className="bg-card opacity-95 m-centered w-full lg:w-30">
+      <div className="bg-card opacity-95 m-centered w-full lg:w-30 rounded-xl shadow-2xl">
         <div className="w-11/12 h-60 m-centered">
-          <img src={props.image} alt={props.name}></img>
+          <img src={props.image ? props.image: noAvailableImage} alt={props.name}></img>
         </div>
         <div>
           <h3 className="font-bold text-center text-2xl h-10">{props.name}</h3>
