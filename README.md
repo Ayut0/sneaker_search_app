@@ -18,6 +18,6 @@ Here are what you can see through this app:
 
 ### Built With
 
-* [![React][React.js]][React-url]
-* [![Tailwind CSS]][https://tailwindcss.com/]
+<img src="https://img.shields.io/badge/-React-555.svg?logo=react&style=for-the-badge">
+<img src="https://img.shields.io/badge/-Tailwindcss-545.svg?logo=tailwindcss&style=for-the-badge">
 
