@@ -19,6 +19,9 @@ Here are what you can see through this app:
 * Story about sneaker
 * Links to resale market. (Stock X, FLIGHT CLUB, G.O.A.T and Stadium Goods)
 
+![Detail Page](src/pics/detailPage.png
+)
+
 ### Built With
 
 <img src="https://img.shields.io/badge/-React-555.svg?logo=react&style=for-the-badge">
