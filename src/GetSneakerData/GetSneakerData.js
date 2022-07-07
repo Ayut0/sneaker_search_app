@@ -8,7 +8,7 @@ export const ContextData = React.createContext('');
 const Sneaker = ({changeValue}) => {
   const [sneakerData, setSneakerData] = useState([]);
   const [sneakerName, setSneakerName] = useState('');
-  const [sneakerLimit, setSneakerLimit] = useState();
+  const [sneakerLimit, setSneakerLimit] = useState('10');
   const [loading, setLoading] = useState(false);
 
   const options = {
@@ -35,6 +35,7 @@ const Sneaker = ({changeValue}) => {
       .catch( (error) =>{
         console.error(error);
         alert(error.message);
+        setLoading(false);
       });
     };
     changeValue(sneakerData);
@@ -71,77 +72,89 @@ const Sneaker = ({changeValue}) => {
     }
 
   return (
-    <ContextData.Provider value={{sneakerData}}>
-    <div>
-      <form className="w-9/12 m-centered pt-32" onSubmit={GetSneakerData}>
-        <label
-          htmlFor="default-search"
-          className="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-gray-300"
-        >
-          Search
-        </label>
-        <div className="relative">
-          <div className="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
-            <svg
-              className="w-5 h-5 text-gray-500 dark:text-gray-400"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-              ></path>
-            </svg>
-          </div>
-          <input
-            type="search"
-            id="default-search"
-            className="block p-6 pl-10 w-full text-sm text-gray-900 bg-gray-50 rounded-3xl border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-            placeholder="enter kick's name..."
-            maxLength="25"
-            value={sneakerName}
-            onChange={(e) => setSneakerName(e.target.value)}
-            required
-          />
-          <input 
-            type="number"
-            min="1"
-            max="100"
-            onChange={(e) => setSneakerLimit((e.target.value))}
-            required
-          />
-          <button
-            type="submit"
-            className="text-white absolute right-2.5 bottom-4 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+    <ContextData.Provider value={{ sneakerData }}>
+      <div>
+        <form className="w-9/12 m-centered pt-32" onSubmit={GetSneakerData}>
+          <label
+            htmlFor="default-search"
+            className="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-gray-300"
           >
             Search
-          </button>
-        </div>
-      </form>
-      <section className="flex flex-wrap w-11/12 m-centered mt-12 gap-y-12 pb-12">
-        {sneakerData &&
-          sneakerData.map((data) => (
+          </label>
+          <div className="relative lg:flex">
+            <div className="flex absolute top-7 left-0 items-center pl-3 pointer-events-none">
+              <svg
+                className="w-5 h-5 text-gray-500 dark:text-gray-400"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                ></path>
+              </svg>
+            </div>
+            <input
+              type="search"
+              id="default-search"
+              className="block p-6 pl-10 w-full text-base font-bold text-gray-900 bg-gray-50 rounded-3xl border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 lg:w-3/4"
+              placeholder="enter kick's name..."
+              maxLength="25"
+              value={sneakerName}
+              onChange={(e) => setSneakerName(e.target.value)}
+              required
+            />
+            <label
+              for="numberOfSearch"
+              className="form-label inline-block mb-2 mt-4 text-gray-700 lg:absolute lg:right-48"
+            >
+              Results
+            </label>
+            <input
+              type="number"
+              min="10"
+              max="100"
+              onChange={(e) => setSneakerLimit(e.target.value)}
+              id="numberOfSearch"
+              placeholder="Number of search (10 ~ 100)"
+              className="form-control block w-1/4 px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none lg:h-1/3 lg:mt-8 lg:ml-12"
+            />
+            <button
+              type="submit"
+              className="text-white absolute right-2.5 top-4 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 lg:right-80"
+            >
+              Search
+            </button>
+          </div>
+        </form>
+        <section className="flex flex-wrap w-11/12 m-centered mt-12 gap-y-12 pb-12">
+          {sneakerData &&
+            sneakerData.map((data) => (
               <Card
                 key={data.id}
                 id={data.id}
                 name={data.name}
                 image={data.image.small}
                 brand={data.brand}
-                estimatedValue={data.estimatedMarketValue !== 0? data.estimatedMarketValue: 'Unknown'}
+                estimatedValue={
+                  data.estimatedMarketValue !== 0
+                    ? data.estimatedMarketValue
+                    : "Unknown"
+                }
                 retailPrice={data.retailPrice}
                 releaseDate={data.releaseDate || `Unknown`}
                 links={data.links}
                 story={data.story || `No story given`}
                 color={data.colorway}
               />
-          ))}
-      </section>
-      <Outlet />
-    </div>
+            ))}
+        </section>
+        <Outlet />
+      </div>
     </ContextData.Provider>
   );
 }
