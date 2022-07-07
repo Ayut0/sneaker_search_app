@@ -8,9 +8,6 @@ const Home = ( {setData} ) => {
   const changeValue = (item) =>{
     setValue(item)
   }
-
-  console.log(value);
-
   useEffect(() =>{
     setData(value)
   }, [])

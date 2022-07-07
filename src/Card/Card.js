@@ -5,7 +5,7 @@ import noAvailableImage from "../pics/No-image-available.webp"
 const Card = (props) => {
   const [data, setData] = useState(props);
   const value = data;
-  console.log(data);
+  // console.log(data);
   const navigate = useNavigate();
   const toDetail = () =>{
     navigate(`/${props.id}`, {state: data})

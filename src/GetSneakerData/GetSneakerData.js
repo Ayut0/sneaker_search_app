@@ -8,12 +8,13 @@ export const ContextData = React.createContext('');
 const Sneaker = ({changeValue}) => {
   const [sneakerData, setSneakerData] = useState([]);
   const [sneakerName, setSneakerName] = useState('');
+  const [sneakerLimit, setSneakerLimit] = useState();
   const [loading, setLoading] = useState(false);
 
   const options = {
     method: "GET",
     url: "https://the-sneaker-database.p.rapidapi.com/search",
-    params: { limit: "20", query: `${sneakerName}` },
+    params: { limit: `${sneakerLimit}`, query: `${sneakerName}` },
     headers: {
       "X-RapidAPI-Host": "the-sneaker-database.p.rapidapi.com",
       "X-RapidAPI-Key": `${process.env.REACT_APP_RAPID_API_KEY}`,
@@ -23,6 +24,7 @@ const Sneaker = ({changeValue}) => {
   const GetSneakerData = (e) => {
     e.preventDefault();
     setLoading(true);
+    console.log(sneakerLimit);
 
     axios
       .request(options)
@@ -44,7 +46,7 @@ const Sneaker = ({changeValue}) => {
           {/* <div className="loader ease-linear rounded-full border-4 border-t-4 border-gray-200 h-12 w-12 mb-4"></div> */}
           <svg
             role="status"
-            class="inline w-10 h-10 mr-2 text-gray-200 animate-spin dark:text-gray-600 fill-blue-600"
+            className="inline w-10 h-10 mr-2 text-gray-200 animate-spin dark:text-gray-600 fill-blue-600"
             viewBox="0 0 100 101"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
@@ -103,6 +105,13 @@ const Sneaker = ({changeValue}) => {
             maxLength="25"
             value={sneakerName}
             onChange={(e) => setSneakerName(e.target.value)}
+            required
+          />
+          <input 
+            type="number"
+            min="1"
+            max="100"
+            onChange={(e) => setSneakerLimit((e.target.value))}
             required
           />
           <button
