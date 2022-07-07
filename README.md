@@ -1,6 +1,7 @@
 # Sneaker Search App
 
-![App Image](src/pics/Screen%20Shot%202022-07-05%20at%2021.25.19.png)
+![App Image](src/pics/Screen%20Shot%202022-07-05%20at%2021.25.19.png
+)
 
 This project is a simple sneaker search application.
 All data come from RESTful API.
