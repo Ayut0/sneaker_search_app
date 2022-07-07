@@ -19,7 +19,7 @@ Here are what you can see through this app:
 * Story about sneaker
 * Links to resale market. (Stock X, FLIGHT CLUB, G.O.A.T and Stadium Goods)
 
-![Detail Page](src/pics/detailPage.png
+![Detail Page](src/pics/SneakerDetailPage.png
 )
 
 ### Built With
