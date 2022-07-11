@@ -44,7 +44,6 @@ const Sneaker = ({changeValue}) => {
     if(loading){
       return (
         <div className="fixed top-0 left-0 right-0 bottom-0 w-full h-screen z-50 overflow-hidden opacity-75 flex flex-col items-center justify-center">
-          {/* <div className="loader ease-linear rounded-full border-4 border-t-4 border-gray-200 h-12 w-12 mb-4"></div> */}
           <svg
             role="status"
             className="inline w-10 h-10 mr-2 text-gray-200 animate-spin dark:text-gray-600 fill-blue-600"
@@ -108,7 +107,7 @@ const Sneaker = ({changeValue}) => {
               onChange={(e) => setSneakerName(e.target.value)}
               required
             />
-            <label
+            {/* <label
               for="numberOfSearch"
               className="form-label inline-block mb-2 mt-4 text-gray-700 lg:absolute lg:right-48"
             >
@@ -122,10 +121,25 @@ const Sneaker = ({changeValue}) => {
               id="numberOfSearch"
               placeholder="Number of search (10 ~ 100)"
               className="form-control block w-1/4 px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none lg:h-1/3 lg:mt-8 lg:ml-12"
-            />
+            /> */}
+            {/* <label for="underline_select" class="sr-only">
+              Underline select
+            </label> */}
+            <select
+              id="underline_select"
+              onChange={(e) => setSneakerLimit(e.target.value)}
+              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            >
+              <option selected>Choose a amount of result</option>
+              <option value="10">10</option>
+              <option value="20">20</option>
+              <option value="30">30</option>
+              <option value="50">50</option>
+              <option value="100">100</option>
+            </select>
             <button
               type="submit"
-              className="text-white absolute right-2.5 top-4 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 lg:right-80"
+              className="text-white absolute right-2.5 top-4 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 lg:right-96"
             >
               Search
             </button>
