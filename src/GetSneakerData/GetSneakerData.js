@@ -80,7 +80,7 @@ const Sneaker = ({changeValue}) => {
           >
             Search
           </label>
-          <div className="relative lg:flex">
+          <div className="relative lg:flex lg:justify-between">
             <div className="flex absolute top-7 left-0 items-center pl-3 pointer-events-none">
               <svg
                 className="w-5 h-5 text-gray-500 dark:text-gray-400"
@@ -100,37 +100,19 @@ const Sneaker = ({changeValue}) => {
             <input
               type="search"
               id="default-search"
-              className="block p-6 pl-10 w-full text-base font-bold text-gray-900 bg-gray-50 rounded-3xl border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 lg:w-3/4"
+              className="block mb-4 p-6 pl-10 w-full text-base font-bold text-gray-900 bg-gray-50 rounded-3xl border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 lg:w-3/4"
               placeholder="enter kick's name..."
-              maxLength="25"
+              maxLength="40"
               value={sneakerName}
               onChange={(e) => setSneakerName(e.target.value)}
               required
             />
-            {/* <label
-              for="numberOfSearch"
-              className="form-label inline-block mb-2 mt-4 text-gray-700 lg:absolute lg:right-48"
-            >
-              Results
-            </label>
-            <input
-              type="number"
-              min="10"
-              max="100"
-              onChange={(e) => setSneakerLimit(e.target.value)}
-              id="numberOfSearch"
-              placeholder="Number of search (10 ~ 100)"
-              className="form-control block w-1/4 px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none lg:h-1/3 lg:mt-8 lg:ml-12"
-            /> */}
-            {/* <label for="underline_select" class="sr-only">
-              Underline select
-            </label> */}
             <select
               id="underline_select"
               onChange={(e) => setSneakerLimit(e.target.value)}
-              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 lg:h-16 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             >
-              <option selected>Choose a amount of result</option>
+              <option selected>Amount of result</option>
               <option value="10">10</option>
               <option value="20">20</option>
               <option value="30">30</option>
