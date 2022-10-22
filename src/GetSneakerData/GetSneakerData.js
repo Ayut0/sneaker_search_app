@@ -71,7 +71,7 @@ const Sneaker = ({changeValue}) => {
   return (
     <ContextData.Provider value={{ sneakerData }}>
       <div>
-        <form className="w-9/12 m-centered pt-32" onSubmit={getSneakerData}>
+        <form className="w-8/12 m-centered pt-32" onSubmit={getSneakerData}>
           <label
             htmlFor="default-search"
             className="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-gray-300"
