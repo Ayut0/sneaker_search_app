@@ -32,13 +32,14 @@ const Detail = ({data}) => {
   }
 
   const linkButtons = () => {
-    return linkArray.map((item)=>{
+    return linkArray.map((item, index)=>{
       return (
         item[1] && (
           <span
-            className={`w-full text-center p-8 border-solid border rounded-lg lg:w-1/2 lg:p-4
+            className={`w-full hover:bg-gray-300 border-gray-400 cursor-pointer text-center p-8 border-solid border rounded-lg lg:w-5/12 lg:p-4
             ${resaleMarket(item[0])}
             `}
+            key={index}
           >
             <a
               href={`${item[1]}`}
@@ -53,8 +54,8 @@ const Detail = ({data}) => {
   return (
     <Fragment>
       <Header />
-      <section className="bg-detail pt-24 pb-12">
-        <Breadcrumbs></Breadcrumbs>
+      <section className="bg-detail pt-28 pb-12">
+        {/* <Breadcrumbs></Breadcrumbs> */}
         <section className="lg:flex m-centered w-11/12">
           <div className="lg:w-1/2">
             <img alt={sneakerInfo.name} src={sneakerInfo.image}></img>
@@ -89,7 +90,7 @@ const Detail = ({data}) => {
             </article>
             <section>
               <h3 className="font-bold text-xl">Check availability at</h3>
-              <div className="flex m-centered flex-wrap w-90 justify-center gap-y-4 mt-8">
+              <div className="flex m-centered flex-wrap w-90 justify-center gap-y-4 mt-8 lg:gap-x-12">
                 {linkButtons()}
               </div>
             </section>

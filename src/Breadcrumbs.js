@@ -10,8 +10,6 @@ const Breadcrumbs = () =>{
         return breadcrumb.location.state.name;
     })
 
-    console.log(eachItem);
-
     return (
       <Fragment>
         {breadcrumbs.map(({ match, breadcrumb }, index) => (
