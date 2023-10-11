@@ -17,7 +17,7 @@ Here are what you can see through this app:
 * Colorway
 * Estimated Market Price
 * Story about sneaker
-* Links to resale market. (Stock X, FLIGHT CLUB, G.O.A.T and Stadium Goods)
+* Links to up to 4 resale platforms. (Stock X, FLIGHT CLUB, G.O.A.T and Stadium Goods)
 
 ![Detail Page](src/pics/SneakerDetailPage.png
 )
